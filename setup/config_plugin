@@ -1,0 +1,44 @@
+################################################################################
+# geoips config specific to geoips_template_plugin repository.
+
+# This sources the main geoips/setup/config_geoips environment, as well as allowing
+# additional environment variables / configurations specific to the geoips_template_plugin
+# functionality.
+
+# If no additional configurations are required for your particular plugin, you can
+# simply source the geoips/setup/config_geoips environment, and will not require
+# a separate config file.
+################################################################################
+
+
+################################################################################
+# These are standard commands to set the standard geoips environment
+# This must happen first!!
+################################################################################
+
+# This sets the path to the current plugin
+if [ -L $BASH_SOURCE ]; then
+    linkpath=`readlink $BASH_SOURCE`
+    # Used in qsub.py
+    PLUGIN_CONFIGPATH=`dirname $linkpath`
+else
+    PLUGIN_CONFIGPATH="$( cd "$( dirname "${BASH_SOURCE[0]}")" && pwd)"
+    # Used in qsub.py
+fi
+
+# Source the geoips config, found relative to the current PLUGIN_CONFIGPATH
+source $PLUGIN_CONFIGPATH/../../geoips/setup/config_geoips
+
+# Set path to GEOIPS_RCFILE - this can be used to consistently set the proper geoips environment,
+# if you are automating subsequent calls to geoips
+if [ -L $BASH_SOURCE ]; then
+    export GEOIPS_RCFILE=$linkpath
+else
+    export GEOIPS_RCFILE=$PLUGIN_CONFIGPATH/"$(basename "${BASH_SOURCE[0]}")"
+fi
+
+
+################################################################################
+# Non-standard environment variables, configurations,
+# etc that are needed by this particular plugin
+################################################################################
