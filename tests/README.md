@@ -1,3 +1,15 @@
+    # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+    # # #
+    # # # Author:
+    # # # Naval Research Laboratory, Marine Meteorology Division
+    # # #
+    # # # This program is free software: you can redistribute it and/or modify it under
+    # # # the terms of the NRLMMD License included with this program. This program is
+    # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+    # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+    # # # for more details. If you did not receive the license, for more information see:
+    # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
 #### # # Distribution Statement A. Approved for public release. Distribution unlimited.
 #### # # 
 #### # # Author:
@@ -20,10 +32,10 @@ Running test scripts
 --------------------
 ```
 # Run an individual test script - each test script must return 0 for successful run, or non-zero for failed
-$GEOIPS_PACKAGES_DIR/geoips_template_plugin/tests/scripts/<script_name>.sh
+$GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/scripts/<script_name>.sh
 
 # Test ALL functionality within the current repo
-$GEOIPS_PACKAGES_DIR/geoips_template_plugin/tests/test_all.sh
+$GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/test_all.sh
 ```
 
 Creating a new test repo
@@ -74,7 +86,7 @@ cd $GEOIPS_BASEDIR/test_data/test_data_<type>
 
 # Add your new call to test_all.sh so we ensure it is in the testing rotation:
 # add something like
-#   "$GEOIPS_PACKAGES_DIR/geoips_template_plugin/tests/scripts/abi_aws.sh"
+#   "$GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/scripts/abi_aws.sh"
 # to test_all.sh
-vim $GEOIPS_PACKAGES_DIR/geoips_template_plugin/tests/test_all.sh
+vim $GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/test_all.sh
 ```

@@ -1,20 +1,56 @@
-#### # # Distribution Statement A. Approved for public release. Distribution unlimited.
-#### # # 
-#### # # Author:
-#### # # Naval Research Laboratory, Marine Meteorology Division
-#### # # 
-#### # # This program is free software:
-#### # # you can redistribute it and/or modify it under the terms
-#### # # of the NRLMMD License included with this program.
-#### # # 
-#### # # If you did not receive the license, see
-#### # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
-#### # # for more information.
-#### # # 
-#### # # This program is distributed WITHOUT ANY WARRANTY;
-#### # # without even the implied warranty of MERCHANTABILITY
-#### # # or FITNESS FOR A PARTICULAR PURPOSE.
-#### # # See the included license for more details.
+    # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+    # # #
+    # # # Author:
+    # # # Naval Research Laboratory, Marine Meteorology Division
+    # # #
+    # # # This program is free software: you can redistribute it and/or modify it under
+    # # # the terms of the NRLMMD License included with this program. This program is
+    # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+    # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+    # # # for more details. If you did not receive the license, for more information see:
+    # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+
+# v1.6.0: 2022-11-28, open source release
+## GEOIPS#119: 2022-11-18, simplify README
+### Documentation
+#### Simplify README and installation
+* Remove README_PLUGIN.md - this is no longer serving as a template, merely an example.
+* Update README.md to standard contents
+    * use links to geoips repo as appropriate
+    * Include actual information about the package.
+* Remove setup.sh, docs/installation.rst
+    * Rely on default setup.py pip install, and geoips installation documentation
+* Rename template_plugin_overview.rst and index to geoips_plugin_example
+    * Rename documentation files from template_plugin to geoips_plugin_example
+```
+renamed:    docs/template_plugin_overview.rst -> docs/geoips_plugin_example_overview.rst
+renamed:    docs/template_plugin_index.rst -> docs/geoips_plugin_index.rst
+deleted:    docs/installation.rst
+deleted:    setup.sh
+deleted:    README_PLUGIN.md
+modified:   docs/geoips_plugin_example_overview.rst
+modified:   docs/geoips_plugin_index.rst
+modified:   README.md
+```
+
+
+# v1.5.2: 2022-09-22, bug - update ABI AWS path
+
+## GEOIPS#75: 2022-09-16, bug fixes
+### Bug fixes
+* **tests/scripts/abi_aws.sh**: $GEOIPS/tests/data -> $GEOIPS_TEST_DATA
+
+## GEOIPS#12: 2022-09-21, geoips_template_plugin -> geoips_plugin_example
+### Refactor
+* Rename repo from geoips_template_plugin -> geoips_plugin_example
+* Update all files / directories from geoips_template_plugin -> geoips_plugin_example
+
+
+# v1.5.1: 2022-07-15, update prefix for distro stmts on \*.md files to spaces
+
+### Documentation Updates
+* Update \*.md Distro statement headers to use 4 spaces prefix rather than ### (formatting improvement)
 
 
 # v1.5.0: 2022-06-09, geoips2->geoips, update GEOIPS\_REPO\_URL

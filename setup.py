@@ -1,20 +1,14 @@
 # # # Distribution Statement A. Approved for public release. Distribution unlimited.
-# # # 
+# # #
 # # # Author:
 # # # Naval Research Laboratory, Marine Meteorology Division
-# # # 
-# # # This program is free software:
-# # # you can redistribute it and/or modify it under the terms
-# # # of the NRLMMD License included with this program.
-# # # 
-# # # If you did not receive the license, see
+# # #
+# # # This program is free software: you can redistribute it and/or modify it under
+# # # the terms of the NRLMMD License included with this program. This program is
+# # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+# # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+# # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
-# # # for more information.
-# # # 
-# # # This program is distributed WITHOUT ANY WARRANTY;
-# # # without even the implied warranty of MERCHANTABILITY
-# # # or FITNESS FOR A PARTICULAR PURPOSE.
-# # # See the included license for more details.
 
 '''
 This is a template to use as a starting point for your setup.py.
@@ -33,11 +27,11 @@ with open(join(dirname(realpath(__file__)), 'VERSION'), encoding='utf-8') as ver
     version = version_file.read().strip()
 
 # If you have no required compiled code, you can remove "ext1" from setup.py - only required for compileable source code
-ext1 = Extension(name='geoips_template_plugin.lib.constants',
+ext1 = Extension(name='geoips_plugin_example.lib.constants',
                  sources=['src/constants.f90'])
 
 setup(
-      name='geoips_template_plugin',
+      name='geoips_plugin_example',
       version=version,
       packages=find_packages(),
       python_requires='>=3.6',
@@ -46,21 +40,21 @@ setup(
       ext_modules=[ext1],  # If no required compiled code, remove "ext_modules" from setup
       entry_points={
           'geoips.filename_formats': [
-              'test_fname=geoips_template_plugin.interface_modules.filename_formats.test_fname:test_fname',
+              'test_fname=geoips_plugin_example.interface_modules.filename_formats.test_fname:test_fname',
           ],
           'geoips.output_formats': [
-              'imagery_test=geoips_template_plugin.interface_modules.output_formats.imagery_test:imagery_test',
+              'imagery_test=geoips_plugin_example.interface_modules.output_formats.imagery_test:imagery_test',
           ],
           'geoips.algorithms': [
-              'single_channel_test=geoips_template_plugin.interface_modules.algorithms.single_channel_test:' +
+              'single_channel_test=geoips_plugin_example.interface_modules.algorithms.single_channel_test:' +
               'single_channel_test',
           ],
           'geoips.interpolation': [
-              'pyresample_wrappers.interp_gauss_test=geoips_template_plugin.interface_modules.interpolation.' +
+              'pyresample_wrappers.interp_gauss_test=geoips_plugin_example.interface_modules.interpolation.' +
               'pyresample_wrappers.interp_gauss_test:interp_gauss_test',
           ],
           'geoips.user_colormaps': [
-              'visir.Infrared_Test=geoips_template_plugin.interface_modules.user_colormaps.' +
+              'visir.Infrared_Test=geoips_plugin_example.interface_modules.user_colormaps.' +
               'visir.Infrared_Test:Infrared_Test',
           ],
       }

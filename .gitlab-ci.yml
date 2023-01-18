@@ -1,0 +1,25 @@
+stages:
+  - test
+  - push
+
+test:
+  # Official docker image.
+  image: docker:latest
+  stage: test
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --build-arg RUN_TESTS=true --pull -t test .
+
+build-and-push:
+  image: docker:latest
+  stage: push
+  services:
+    - docker:dind
+  before_script:
+    - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
+  script:
+    - docker build --pull -t $CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG .
+    - docker push "$CI_REGISTRY_IMAGE:$CI_COMMIT_REF_SLUG"

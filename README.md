@@ -1,128 +1,80 @@
-#### # # Distribution Statement A. Approved for public release. Distribution unlimited.
-#### # # 
-#### # # Author:
-#### # # Naval Research Laboratory, Marine Meteorology Division
-#### # # 
-#### # # This program is free software:
-#### # # you can redistribute it and/or modify it under the terms
-#### # # of the NRLMMD License included with this program.
-#### # # 
-#### # # If you did not receive the license, see
-#### # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
-#### # # for more information.
-#### # # 
-#### # # This program is distributed WITHOUT ANY WARRANTY;
-#### # # without even the implied warranty of MERCHANTABILITY
-#### # # or FITNESS FOR A PARTICULAR PURPOSE.
-#### # # See the included license for more details.
+    # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+    # # #
+    # # # Author:
+    # # # Naval Research Laboratory, Marine Meteorology Division
+    # # #
+    # # # This program is free software: you can redistribute it and/or modify it under
+    # # # the terms of the NRLMMD License included with this program. This program is
+    # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+    # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+    # # # for more details. If you did not receive the license, for more information see:
+    # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-Installation Guide
-==================
+GeoIPS Plugin Example
+==========================
 
-This installation guide has installation steps specific to installing the geoips_template_plugin plugin, including
-the base geoips conda install if not already installed.
+The geoips_plugin_example package is a GeoIPS-compatible plugin package, intended to serve as
+an example for implementing different plugin types (ie, algorithms, filename formats, etc)
+within the GeoIPS ecosystem. Please see the 
+[GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/README.md)
+for more information on the GeoIPS plugin architecture and base infrastructure.
 
-Setup System Environment Variables
-----------------------------------
+Package Overview
+-----------------
 
-```bash
+The geoips_plugin_example plugin package includes duplicated versions of several
+basic pieces of functionality originally contained within the main geoips repo,
+in order to serve as an example for setting up a plugin package containing a variety of
+different plugin types.
 
-    # Set up appropriate environment variables for all conda-based geoips_template_plugin setup steps
-    # within this geoips_template_plugin README below
+This package contains duplicated plugin examples of the following types:
 
-    # These steps will need to be copied and pasted into your shell any time you want to run the 
-    # setup commands within this README.
-    
-    # Typical users do not have to make any modifications to the commands
-    # within this README, and can copy and paste directly.
+* algorithms
+* filename formats
+* output formats
+* interpolation routines
+* colormaps
+* product specification
 
-    # Once geoips_template_plugin has been installed, the "GEOIPS_CONFIG_FILE" specified below will be
-    # sourced when running geoips_template_plugin, and the direct environment variable assignments
-    # within this section are no longer required.
+There is a single test script which incorporates all of the modified modules in a single call.
 
-    # If you would like to have the GEOIPS_CONFIG_FILE automatically sourced so you do not have to manually run the 
-    # source command for every new shell, you can add 
-    # source </full/path/to/config/file>
-    # to your ~/.bashrc file
+* tests/scripts/abi_aws.sh
 
-    # GEOIPS_REPO_URL should point to the base URL for git clone commands
-    export GEOIPS_REPO_URL=https://github.com/NRLMMD-GeoIPS
+This example plugin package is intended to serve as an example, not necessarily as a template.
+Template repositories are also available - with the intent to continue adding template repositories
+for various use cases.  Please let us know if you have a specific use case you are interested in
+implementing which could benefit from a template repo.
 
-    # GEOIPS_BASEDIR will contain all source, output, and external dependencies
-    # Ensure this is consistently set for all installation / setup steps below
-    export GEOIPS_BASEDIR=$HOME/geoproc
+System Requirements
+---------------------
 
-    # This config file must be sourced ANY TIME you want to run the geoips geoips_template_plugin plugin
-    export GEOIPS_CONFIG_FILE=$GEOIPS_BASEDIR/geoips_packages/geoips_template_plugin/setup/config_plugin
+* geoips >= 1.5.3
+* numpy (to build dummy fortran)
+* Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
 
-```
-
-Clone geoips_template_plugin git repositories required for setup scripts
------------------------------------------------------------
-```bash
-    mkdir -p $GEOIPS_BASEDIR/geoips_packages/
-
-    git clone $GEOIPS_REPO_URL/geoips.git $GEOIPS_BASEDIR/geoips_packages/geoips
-    git -C $GEOIPS_BASEDIR/geoips_packages/geoips pull
-    git -C $GEOIPS_BASEDIR/geoips_packages/geoips checkout -t origin/dev
-    git -C $GEOIPS_BASEDIR/geoips_packages/geoips checkout dev
-    git -C $GEOIPS_BASEDIR/geoips_packages/geoips pull
-
-    git clone $GEOIPS_REPO_URL/geoips_template_plugin.git ${GEOIPS_BASEDIR}/geoips_packages/geoips_template_plugin
-    git -C ${GEOIPS_BASEDIR}/geoips_packages/geoips_template_plugin pull
-    git -C ${GEOIPS_BASEDIR}/geoips_packages/geoips_template_plugin checkout -t origin/dev
-    git -C ${GEOIPS_BASEDIR}/geoips_packages/geoips_template_plugin checkout dev
-    git -C ${GEOIPS_BASEDIR}/geoips_packages/geoips_template_plugin pull
-```
-
-IF REQUIRED: Install and test base geoips conda environment
+IF REQUIRED: Install base geoips package
 ------------------------------------------------------------
-```bash
-    # SKIP IF YOU HAVE ALREADY INSTALLED BASE GEOIPS CONDA ENVIRONMENT 
-    # This prompts you through all the steps of installing the geoips conda environment from scratch,
-    # using the parameters specified above.  This only needs to be done once per system, skip if you
-    # already ran this command and successfully installed the geoips conda environment.
-    $GEOIPS_BASEDIR/geoips_packages/geoips/base_install_and_test.sh dev
-```
+SKIP IF YOU HAVE ALREADY INSTALLED BASE GEOIPS ENVIRONMENT 
+
+If GeoIPS Base is not yet installed, follow the
+[installation instructions](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/docs/installation.rst)
+within the geoips source repo documentation:
 
 Install geoips_template_plugin package
--------------------------
+----------------------------------------
 ```bash
-    $GEOIPS_BASEDIR/geoips_packages/geoips_template_plugin/setup.sh repo_clone
-
-    # Watch out for "GIT PULL FAILED" or "GIT CHECKOUT FAILED" log outputs -
-    # those are legitimate failures and must be addressed before continuing
-    $GEOIPS_BASEDIR/geoips_packages/geoips_template_plugin/setup.sh repo_update
-
+    # Assuming you followed the fully supported installation,
+    # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
     source $GEOIPS_CONFIG_FILE
-    pip install -e $GEOIPS_BASEDIR/geoips_packages/geoips
-    $GEOIPS_BASEDIR/geoips_packages/geoips_template_plugin/setup.sh install
+    git clone -b $GEOIPS_ACTIVE_BRANCH $GEOIPS_REPO_URL $GEOIPS_PACKAGES_DIR/geoips_plugin_example
+    pip install -e $GEOIPS_PACKAGES_DIR/geoips_plugin_example
 ```
 
-Test geoips_template_plugin installation - these test scripts provide you with the full command line calls
----------------------------------------------------------------------------------------------
+Test geoips_plugin_example installation
+-----------------------------------------
 ```bash
+    # Assuming you followed the fully supported installation,
+    # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
     source $GEOIPS_CONFIG_FILE
-
-    # This runs the single ABI test script
-    $GEOIPS_PACKAGES_DIR/geoips_template_plugin/tests/scripts/abi_aws.sh
-
-    # This runs EVERY possible functionality test for this repo, and returns 0 if they all pass.
-    $GEOIPS_PACKAGES_DIR/geoips_template_plugin/tests/test_all.sh
+    $GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/test_all.sh
 ```
-
-Modify geoips_template_plugin repository for your own geoips plugin
----------------------------------------------------------------------------------------------
-
-Please follow instructions within `README_PLUGIN.md` for modifying template_plugin to create your own
-geoips plugin repository.
-
-
-Create test scripts for your new geoips plugin
----------------------------------------------------------------------------------------------
-
-Please follow instructions  within `tests/README.md` for adding appropriate test scripts to your
-new geoips plugin repository.
-
-Valid test scripts are required to ensure functionality operates as expected,
-and to provide sample outputs for reference.
