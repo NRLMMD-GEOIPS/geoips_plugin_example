@@ -66,7 +66,7 @@ Install geoips_template_plugin package
     # Assuming you followed the fully supported installation,
     # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
     source $GEOIPS_CONFIG_FILE
-    git clone -b $GEOIPS_ACTIVE_BRANCH $GEOIPS_REPO_URL $GEOIPS_PACKAGES_DIR/geoips_plugin_example
+    git clone -b $GEOIPS_ACTIVE_BRANCH $GEOIPS_REPO_URL/geoips_plugin_example $GEOIPS_PACKAGES_DIR/geoips_plugin_example
     pip install -e $GEOIPS_PACKAGES_DIR/geoips_plugin_example
 ```
 
