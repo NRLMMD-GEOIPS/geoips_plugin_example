@@ -34,7 +34,7 @@ def interp_gauss_test(area_def, input_xarray, output_xarray, varlist, array_num=
             vars_to_interp += [input_xarray[varname].to_masked_array()]
 
     # Use standard scifile / pyresample registration
-    from geoips.interface_modules.interpolation.utils.interp_pyresample import interp_kd_tree, get_data_box_definition
+    from geoips.plugins.modules.interpolators.utils.interp_pyresample import interp_kd_tree, get_data_box_definition
     data_box_definition = get_data_box_definition(input_xarray.source_name,
                                                   lons,
                                                   lats)

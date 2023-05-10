@@ -1,7 +1,12 @@
-Infrared-Test:
-    product_type: interp_alg_cmap
-    alg_func: single_channel
-    alg_args: 
+interface: product_defaults
+family: interpolator_algorithm_colormap
+name: Infrared-Test
+docstring: The Infrared test product_defaults configuration
+spec:
+  algorithm:
+    plugin:
+      name: single_channel
+      arguments:
         output_data_range: [-90.0, 30.0]
         input_units: Kelvin
         output_units: celsius
@@ -9,9 +14,13 @@ Infrared-Test:
         max_outbounds: crop
         norm: null
         inverse: null
-    mtif_type: ir
-    cmap_func: visir.Infrared_Test
-    cmap_args: 
+  mtif_type: ir
+  colormap:
+    plugin:
+      name: visir.Infrared_Test
+      arguments:
         data_range: [-90.0, 30.0]
-    interp_func: pyresample_wrappers.interp_gauss_test
-    interp_args: {}
+  interpolator:
+    plugin:
+      name: pyresample_wrappers.interp_gauss_test
+      arguments: {}

@@ -1,3 +1,12 @@
-abi:
-  Infrared-Test:
-    variables: ['B14BT']
+interface: products
+family: list
+name: abi
+docstring: The abi products configuration, which produces an Infrared test product
+spec:
+  products:
+    - name: Infrared-Test
+      source_name: abi
+      docstring: Infrared test product
+      product_defaults: Infrared-Test
+      spec:
+        variables: ["B14BT"]
