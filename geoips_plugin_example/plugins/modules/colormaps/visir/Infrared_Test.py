@@ -15,10 +15,11 @@ import logging
 
 LOG = logging.getLogger(__name__)
 
-cmap_type = 'linear_segmented'
+interface = "colormaps"
+family = "linear_segmented"
+name = "Infrared_Test"
 
-
-def Infrared_Test(data_range=[-90, 30]):
+def call(data_range=[-90, 30]):
     ''' Colormap developed for displaying algorithms/visir/Infrared.py processed data.
     
     Args:

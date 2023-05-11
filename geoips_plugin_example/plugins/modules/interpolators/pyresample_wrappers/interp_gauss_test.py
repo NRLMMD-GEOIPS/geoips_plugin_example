@@ -14,10 +14,11 @@
 import logging
 LOG = logging.getLogger(__name__)
 
-interp_type = '2d'
+interface = "interpolators"
+family = "2d"
+name = "interp_gauss_test"
 
-
-def interp_gauss_test(area_def, input_xarray, output_xarray, varlist, array_num=None, sigmaval=None):
+def call(area_def, input_xarray, output_xarray, varlist, array_num=None, sigmaval=None):
     ''' Use pyresample gaussian interpolation from interp_kd_tree:  return of list of numpy.ma.MaskedArray '''
     LOG.info('Interpolating using standard scifile register method: kd_tree gauss sigmaval %s', sigmaval)
 

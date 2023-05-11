@@ -10,15 +10,17 @@
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
+"""Test image output procedure."""
 import os
 import logging
 
 LOG = logging.getLogger(__name__)
 
-output_type = 'image'
+interface = "output_formatters"
+family = "image"
+name = "imagery_test"
 
-
-def imagery_test(area_def,
+def call(area_def,
                  xarray_obj,
                  product_name,
                  output_fnames,

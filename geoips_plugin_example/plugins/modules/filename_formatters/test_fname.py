@@ -21,10 +21,11 @@ from geoips.filenames.base_paths import PATHS as gpaths
 
 LOG = logging.getLogger(__name__)
 
-filename_type = 'standard'
+interface = "filename_formatters"
+family = "standard"
+name = "test_fname"
 
-
-def test_fname(area_def, xarray_obj, product_name, coverage, output_type='png', output_type_dir=None,
+def call(area_def, xarray_obj, product_name, coverage, output_type='png', output_type_dir=None,
                  product_dir=None, product_subdir=None, source_dir=None, basedir=gpaths['ANNOTATED_IMAGERY_PATH']):
 
     from geoips.xarray_utils.timestamp import get_min_from_xarray_timestamp

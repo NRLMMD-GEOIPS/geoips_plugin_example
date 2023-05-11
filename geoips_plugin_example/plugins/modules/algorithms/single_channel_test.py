@@ -21,10 +21,12 @@ LOG = logging.getLogger(__name__)
 
 KtoC_conversion = -273.15
 
-alg_func_type = 'list_numpy_to_numpy'
+interface = "algorithms"
+family = "list_numpy_to_numpy"
+name = "single_channel_test"
 
 
-def single_channel_test(arrays, output_data_range, input_units=None, output_units=None,
+def call(arrays, output_data_range, input_units=None, output_units=None,
                    min_outbounds='crop', max_outbounds='crop', norm=False, inverse=False,
                    sun_zen_correction=False,
                    mask_night=False, min_day_zen=None,
