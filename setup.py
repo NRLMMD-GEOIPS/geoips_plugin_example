@@ -17,45 +17,12 @@ add any installation requirements to the `install_requires` array, and
 add any required `entry_points`.
 '''
 
-from os.path import realpath, join, dirname
-
-from setuptools import find_packages
 from numpy.distutils.core import setup, Extension
-
-# This ensures .__version__ is set on the package, based on value in VERSION file.
-with open(join(dirname(realpath(__file__)), 'VERSION'), encoding='utf-8') as version_file:
-    version = version_file.read().strip()
 
 # If you have no required compiled code, you can remove "ext1" from setup.py - only required for compileable source code
 ext1 = Extension(name='geoips_plugin_example.lib.constants',
                  sources=['src/constants.f90'])
 
 setup(
-      name='geoips_plugin_example',
-      version=version,
-      packages=find_packages(),
-      python_requires='>=3.6',
-      build_requires=['numpy'],
-      install_requires=['numpy'],
       ext_modules=[ext1],  # If no required compiled code, remove "ext_modules" from setup
-      entry_points={
-          'geoips.filename_formats': [
-              'test_fname=geoips_plugin_example.interface_modules.filename_formats.test_fname:test_fname',
-          ],
-          'geoips.output_formats': [
-              'imagery_test=geoips_plugin_example.interface_modules.output_formats.imagery_test:imagery_test',
-          ],
-          'geoips.algorithms': [
-              'single_channel_test=geoips_plugin_example.interface_modules.algorithms.single_channel_test:' +
-              'single_channel_test',
-          ],
-          'geoips.interpolation': [
-              'pyresample_wrappers.interp_gauss_test=geoips_plugin_example.interface_modules.interpolation.' +
-              'pyresample_wrappers.interp_gauss_test:interp_gauss_test',
-          ],
-          'geoips.user_colormaps': [
-              'visir.Infrared_Test=geoips_plugin_example.interface_modules.user_colormaps.' +
-              'visir.Infrared_Test:Infrared_Test',
-          ],
-      }
   )

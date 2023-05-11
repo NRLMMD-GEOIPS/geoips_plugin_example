@@ -1,0 +1,76 @@
+# This is a template to use as a starting point for your pyproject.toml.
+# To get this working corectly, set `name` to the name of your packages,
+# add any installation requirements to the `install_requires` array, and
+# add any required `entry_points`.
+
+[build-system]
+requires = ["setuptools>=61.2", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages]
+find = {namespaces = false}
+
+[tool.setuptools.package-dir]
+"" = "."
+
+[tool.setuptools.package-data]
+"*" = [
+    "plugins/*.txt",
+    "plugins/*/*.txt",
+    "plugins/*/*/*.txt",
+    "plugins/*/*/*/*.txt",
+    "plugins/*/*/*/*/*.txt",
+    "plugins/*.yaml",
+    "plugins/*/*.yaml",
+    "plugins/*/*/*.yaml",
+    "plugins/*/*/*/*.yaml",
+    "plugins/*/*/*/*/*.yaml",
+    "schema/*.yaml",
+    "schema/*/*.yaml",
+    "schema/*/*/*.yaml",
+    "schema/*/*/*/*.yaml",
+    "schema/*/*/*/*/*.yaml",
+    "image_utils/ascii_palettes/*",
+]
+
+[tool.setuptools.dynamic]
+entry-points = {file = ["entry-points.ini"]}
+
+[tool.setuptools_scm]
+"version_scheme" = "post-release"  # Use current version .postN vs incrementing
+"local_scheme" = "no-local-version"  # Don't include hash, or date, just postN
+"write_to" = "geoips_plugin_example/version.py"  # Write an actual file
+
+[project]
+name = "geoips_plugin_example"
+authors = []
+description = "GeoIPS Plugin Example Package"
+readme = "README.md"
+requires-python = ">=3.9"
+keywords = []
+license = {file = "LICENSE"}
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dynamic = ["version"]
+dependencies = [
+    "numpy",
+]
+
+[project.entry-points."geoips.plugin_packages"]
+"geoips_plugin_example" = "geoips_plugin_example"
+
+[project.entry-points."geoips.filename_formatters"]
+test_fname = "geoips_plugin_example.plugins.modules.filename_formatters.test_fname"
+
+[project.entry-points."geoips.output_formatters"]
+imagery_test = "geoips_plugin_example.plugins.modules.output_formatters.imagery_test"
+
+[project.entry-points."geoips.algorithms"]
+single_channel_test = "geoips_plugin_example.plugins.modules.algorithms.single_channel_test"
+
+[project.entry-points."geoips.interpolators"]
+pyresample_wrappers.interp_gauss_test = "geoips_plugin_example.plugins.modules.interpolators.pyresample_wrappers.interp_gauss_test"
+
+[project.entry-points."geoips.colormaps"]
+visir.Infrared_Test = "geoips_plugin_example.plugins.modules.colormaps.visir.Infrared_Test"
