@@ -4,7 +4,7 @@
 # add any required `entry_points`.
 
 [build-system]
-requires = ["setuptools>=61.2", "setuptools-scm"]
+requires = ["setuptools>=61.2", "setuptools-scm", "numpy"]
 build-backend = "setuptools.build_meta"
 
 [tool.setuptools.packages]
@@ -70,7 +70,7 @@ imagery_test = "geoips_plugin_example.plugins.modules.output_formatters.imagery_
 single_channel_test = "geoips_plugin_example.plugins.modules.algorithms.single_channel_test"
 
 [project.entry-points."geoips.interpolators"]
-pyresample_wrappers.interp_gauss_test = "geoips_plugin_example.plugins.modules.interpolators.pyresample_wrappers.interp_gauss_test"
+interp_gauss_test = "geoips_plugin_example.plugins.modules.interpolators.pyresample_wrappers.interp_gauss_test"
 
 [project.entry-points."geoips.colormaps"]
-visir.Infrared_Test = "geoips_plugin_example.plugins.modules.colormaps.visir.Infrared_Test"
+Infrared_Test = "geoips_plugin_example.plugins.modules.colormaps.visir.Infrared_Test"

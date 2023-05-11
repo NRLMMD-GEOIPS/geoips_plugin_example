@@ -48,25 +48,29 @@ implementing which could benefit from a template repo.
 System Requirements
 ---------------------
 
-* geoips >= 1.5.3
+* geoips >= 1.10.0
 * numpy (to build dummy fortran)
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
+  * Test data for this plugin is installed with the following script:
+```bash
+    geoips/setup.sh setup_abi_test_data
+```
 
 IF REQUIRED: Install base geoips package
 ------------------------------------------------------------
 SKIP IF YOU HAVE ALREADY INSTALLED BASE GEOIPS ENVIRONMENT 
 
 If GeoIPS Base is not yet installed, follow the
-[installation instructions](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/docs/installation.rst)
+[installation instructions](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/docs/source/starter/installation.rst)
 within the geoips source repo documentation:
 
-Install geoips_template_plugin package
+Install geoips_plugin_example package
 ----------------------------------------
 ```bash
     # Assuming you followed the fully supported installation,
     # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
     source $GEOIPS_CONFIG_FILE
-    git clone $GEOIPS_REPO_URL/geoips_plugin_example.git $GEOIPS_PACKAGES_DIR/geoips_plugin_example
+    git clone https://github.com/NRLMMD-GEOIPS/geoips_plugin_example.git $GEOIPS_PACKAGES_DIR/geoips_plugin_example
     pip install -e $GEOIPS_PACKAGES_DIR/geoips_plugin_example
 ```
 
