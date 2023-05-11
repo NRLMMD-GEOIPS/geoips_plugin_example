@@ -66,12 +66,13 @@ within the geoips source repo documentation:
 
 Install geoips_plugin_example package
 ----------------------------------------
+NOTE: as of 2023/05/11 v1.10, "pip install -e" does not work due to gfortran compiler errors.  Use "pip install" instead.  This change is only necessary if including compiled code in a plugin.
 ```bash
     # Assuming you followed the fully supported installation,
     # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
     source $GEOIPS_CONFIG_FILE
     git clone https://github.com/NRLMMD-GEOIPS/geoips_plugin_example.git $GEOIPS_PACKAGES_DIR/geoips_plugin_example
-    pip install -e $GEOIPS_PACKAGES_DIR/geoips_plugin_example
+    pip install $GEOIPS_PACKAGES_DIR/geoips_plugin_example
 ```
 
 Test geoips_plugin_example installation
