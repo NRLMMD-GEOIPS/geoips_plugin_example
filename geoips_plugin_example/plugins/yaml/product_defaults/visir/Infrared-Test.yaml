@@ -17,10 +17,10 @@ spec:
   mtif_type: ir
   colormap:
     plugin:
-      name: visir.Infrared_Test
+      name: Infrared_Test
       arguments:
         data_range: [-90.0, 30.0]
   interpolator:
     plugin:
-      name: pyresample_wrappers.interp_gauss_test
+      name: interp_gauss_test
       arguments: {}
