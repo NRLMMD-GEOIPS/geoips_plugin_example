@@ -74,3 +74,17 @@ interp_gauss_test = "geoips_plugin_example.plugins.modules.interpolators.pyresam
 
 [project.entry-points."geoips.colormaps"]
 Infrared_Test = "geoips_plugin_example.plugins.modules.colormaps.visir.Infrared_Test"
+
+# The following are the pieces of setup.py that were used to build compiled code. pip
+#   installing with a combination of pyproject.toml and setup.py does not work with
+#   the compiled extension, so setup.py would need to be constructed using this and the
+#   information above to create a plugin that uses compiled extensions.
+#from numpy.distutils.core import setup, Extension
+
+# If you have no required compiled code, you can remove "ext1" from setup.py - only required for compileable source code
+#ext1 = Extension(name='geoips_plugin_example.lib.constants',
+#                 sources=['src/constants.f90'])
+
+#setup(
+#      ext_modules=[ext1],  # If no required compiled code, remove "ext_modules" from setup
+#  )
