@@ -9,3 +9,4 @@
 # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+"""Init file for geoips_plugin_example/filename_formatters."""

@@ -10,7 +10,7 @@
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-"""Standard geoips filename production"""
+"""Standard geoips filename production."""
 
 # Python Standard Libraries
 import logging
@@ -30,7 +30,7 @@ def call(
     area_def,
     xarray_obj,
     product_name,
-    coverage,
+    coverage=None,
     output_type="png",
     output_type_dir=None,
     product_dir=None,
@@ -38,7 +38,8 @@ def call(
     source_dir=None,
     basedir=gpaths["ANNOTATED_IMAGERY_PATH"],
 ):
-    from geoips.xarray_utils.timestamp import get_min_from_xarray_timestamp
+    """Procudes the standard geoips filename."""
+    # from geoips.xarray_utils.timestamp import get_min_from_xarray_timestamp
 
     # start_dt = get_min_from_xarray_timestamp(xarray_obj, 'timestamp')
     start_dt = xarray_obj.start_datetime
@@ -92,10 +93,12 @@ def assemble_geoips_fname(
     city=None,
 ):
     """Produce full output product path from product / sensor specifications.
+
         standard web paths are of the format:
-       '<basedir>/<continent>-<country>-<area>/<subarea>-<state>-<city>/<productname>/<sensorname>
+        <basedir>/<continent>-<country>-<area>/<subarea>-<state>-<city>/<productname>/<sensorname>
         standard filenames are of the format:
         <date{%Y%m%d}>.<time{%H%M%S}>.<satname>.<sensorname>.<productname>.<sectorname>.<coverage>.<dataprovider>.<extra>
+
     +------------------+-----------+---------------------------------------------------+
     | Parameters:      | Type:     | Description:                                      |
     +==================+===========+===================================================+
@@ -168,7 +171,8 @@ def assemble_geoips_fname(
     )
     # source_dir,
     # '{0:0.1f}'.format(resolution).replace('.', 'p'))
-    # fname = '<date{%Y%m%d}>.<time{%H%M%S}>.<satname>.<sensorname>.<productname>.<sectorname>.
+    # fname = '<date{%Y%m%d}>.<time{%H%M%S}>.<satname>.<sensorname>.
+    #          <productname>.<sectorname>.
     #          <coverage>.<dataprovider>.<extra>'
     fname = ".".join(
         [
@@ -188,5 +192,6 @@ def assemble_geoips_fname(
 
 
 def geoips_fname_remove_duplicates(fname, mins_to_remove=10, remove_files=False):
+    """Intended to remove duplicate filenames; currently no functionality."""
     LOG.info("MUST ADD LOGIC TO REMOVE STANDARD GEOIPS FILENAME DUPLICATES")
     return [], []

@@ -10,9 +10,10 @@
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-""" Data manipulation steps for "89H" product.
+"""
+Data manipulation steps for "89H" product.
 
-    This algorithm expects Brightness Temperatures in units of degrees Kelvin
+This algorithm expects Brightness Temperatures in units of degrees Kelvin
 """
 
 import logging
@@ -43,11 +44,13 @@ def call(
     gamma_list=None,
     scale_factor=None,
 ):
-    """Data manipulation steps for applying a data range and requested corrections to a single channel product
+    """Apply a data range and requested corrections to a single channel product.
 
-    Args:
+    Parameters
+    ----------
         arrays (list[numpy.ndarray]) :
-            * list of numpy.ndarray or numpy.MaskedArray of channel data and other variables, in order of sensor "variables" list
+            * list of numpy.ndarray or numpy.MaskedArray of channel data and other
+              variables, in order of sensor "variables" list
             * Channel data: Degrees Kelvin
         output_data_range (list[float]) :
             * list of min and max value for output data product
@@ -59,12 +62,14 @@ def call(
             * Method to use when applying bounds.  Valid values are:
                 * retain: keep all pixels as is
                 * mask: mask all pixels that are out of range
-                * crop: set all out of range values to either min_val or max_val as appropriate
+                * crop: set all out of range values to either min_val or max_val
+                  as appropriate
         max_outbounds (str) : DEFAULT 'crop'
             * Method to use when applying bounds.  Valid values are:
                 * retain: keep all pixels as is
                 * mask: mask all pixels that are out of range
-                * crop: set all out of range values to either min_val or max_val as appropriate
+                * crop: set all out of range values to either min_val or max_val
+                  as appropriate
         norm (bool) : DEFAULT True
             * Boolean flag indicating whether to normalize (True) or not (False)
                 * If True, returned data will be in the range from 0 to 1
@@ -75,11 +80,11 @@ def call(
                 * If False, returned data will not be inverted
 
 
-    Returns:
-        numpy.ndarray : numpy.ndarray or numpy.MaskedArray of appropriately scaled channel data,
-                        in units "output_units".
+    Returns
+    -------
+        numpy.ndarray : numpy.ndarray or numpy.MaskedArray of appropriately scaled
+                        channel data, in units "output_units".
     """
-
     data = arrays[0]
 
     if min_day_zen and len(arrays) == 2:
