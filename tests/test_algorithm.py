@@ -13,6 +13,7 @@
 from default_package import default_algorithm
 from default_package import constants
 
+
 def test_algorithm():
     assert default_algorithm() == 1
     assert default_algorithm() == default_algorithm(constants.test1)
