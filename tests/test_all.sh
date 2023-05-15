@@ -26,6 +26,9 @@
 echo ""
 # "call" used in test_all_run.sh
 for call in \
+            "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all `dirname $0`/../" \
+            "test_interfaces" \
+            "pytest $GEOIPS_PACKAGES_DIR/geoips/tests/test_pytest" \
             "$GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/scripts/abi_aws.sh"
 do
     . $GEOIPS/tests/utils/test_all_run.sh
