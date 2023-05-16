@@ -16,7 +16,7 @@ GeoIPS Plugin Example
 The geoips_plugin_example package is a GeoIPS-compatible plugin package, intended to serve as
 an example for implementing different plugin types (ie, algorithms, filename formats, etc)
 within the GeoIPS ecosystem. Please see the 
-[GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/README.md)
+[GeoIPS Documentation](https://github.com/NRLMMD-GEOIPS/geoips#readme)
 for more information on the GeoIPS plugin architecture and base infrastructure.
 
 Package Overview
@@ -53,7 +53,7 @@ System Requirements
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
   * Test data for this plugin is installed with the following script:
 ```bash
-    geoips/setup.sh setup_abi_test_data
+    $GEOIPS_PACKAGES_DIR/geoips/setup/check_system_requirements.sh aws_data abi_day_low_memory
 ```
 
 IF REQUIRED: Install base geoips package
@@ -61,12 +61,16 @@ IF REQUIRED: Install base geoips package
 SKIP IF YOU HAVE ALREADY INSTALLED BASE GEOIPS ENVIRONMENT 
 
 If GeoIPS Base is not yet installed, follow the
-[installation instructions](https://github.com/NRLMMD-GEOIPS/geoips/blob/main/docs/source/starter/installation.rst)
+[installation instructions](https://github.com/NRLMMD-GEOIPS/geoips#installation)
 within the geoips source repo documentation:
 
 Install geoips_plugin_example package
 ----------------------------------------
-NOTE: If you need to create a plugin with a compiled code extension, pyproject.toml will have to be replaced with a reconstructed setup.py (more information is located pyproject.toml), as using both files together does not allow for editable pip installs.
+NOTE: If you need to create a plugin with a compiled code extension, you will have to
+specify the Extension build information within a setup.py file, and install WITHOUT the "-e" option
+to pip install. Using both pyproject.toml and setup.py together does not allow for editable
+pip installs.  More information contained within pyproject.toml.
+
 ```bash
     # Assuming you followed the fully supported installation,
     # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
@@ -78,8 +82,11 @@ NOTE: If you need to create a plugin with a compiled code extension, pyproject.t
 Test geoips_plugin_example installation
 -----------------------------------------
 ```bash
-    # Assuming you followed the fully supported installation,
-    # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
-    source $GEOIPS_CONFIG_FILE
+    # Ensure GeoIPS Python environment is enabled.
+
+    # Install required test datasets
+    $GEOIPS_PACKAGES_DIR/geoips/setup/check_system_requirements.sh aws_test_data abi_day_low_memory
+    
+    # Run test scripts once test datasets available
     $GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/test_all.sh
 ```
