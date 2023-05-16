@@ -10,7 +10,7 @@
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-'''Standard geoips filename production'''
+"""Standard geoips filename production."""
 
 # Python Standard Libraries
 import logging
@@ -21,51 +21,84 @@ from geoips.filenames.base_paths import PATHS as gpaths
 
 LOG = logging.getLogger(__name__)
 
-filename_type = 'standard'
+interface = "filename_formatters"
+family = "standard"
+name = "test_fname"
 
 
-def test_fname(area_def, xarray_obj, product_name, coverage, output_type='png', output_type_dir=None,
-                 product_dir=None, product_subdir=None, source_dir=None, basedir=gpaths['ANNOTATED_IMAGERY_PATH']):
+def call(
+    area_def,
+    xarray_obj,
+    product_name,
+    coverage=None,
+    output_type="png",
+    output_type_dir=None,
+    product_dir=None,
+    product_subdir=None,
+    source_dir=None,
+    basedir=gpaths["ANNOTATED_IMAGERY_PATH"],
+):
+    """Procudes the standard geoips filename."""
+    # from geoips.xarray_utils.timestamp import get_min_from_xarray_timestamp
 
-    from geoips.xarray_utils.timestamp import get_min_from_xarray_timestamp
     # start_dt = get_min_from_xarray_timestamp(xarray_obj, 'timestamp')
     start_dt = xarray_obj.start_datetime
 
     resolution = max(area_def.pixel_size_x, area_def.pixel_size_y) / 1000.0
 
-    extra = '{0:0.1f}'.format(resolution).replace('.', 'p')
-    web_fname = assemble_geoips_fname(basedir=basedir,
-                                      product_name=product_name,
-                                      source_name=xarray_obj.source_name,
-                                      platform_name=xarray_obj.platform_name,
-                                      sector_name=area_def.area_id,
-                                      coverage=coverage,
-                                      resolution=resolution,
-                                      product_datetime=start_dt,
-                                      output_type=output_type,
-                                      data_provider=xarray_obj.data_provider,
-                                      extra=extra,
-                                      product_dir=product_dir,
-                                      source_dir=source_dir,
-                                      continent=area_def.sector_info['continent'],
-                                      country=area_def.sector_info['country'],
-                                      area=area_def.sector_info['area'],
-                                      subarea=area_def.sector_info['subarea'],
-                                      state=area_def.sector_info['state'],
-                                      city=area_def.sector_info['city'])
+    extra = "{0:0.1f}".format(resolution).replace(".", "p")
+    web_fname = assemble_geoips_fname(
+        basedir=basedir,
+        product_name=product_name,
+        source_name=xarray_obj.source_name,
+        platform_name=xarray_obj.platform_name,
+        sector_name=area_def.area_id,
+        coverage=coverage,
+        resolution=resolution,
+        product_datetime=start_dt,
+        output_type=output_type,
+        data_provider=xarray_obj.data_provider,
+        extra=extra,
+        product_dir=product_dir,
+        source_dir=source_dir,
+        continent=area_def.sector_info["continent"],
+        country=area_def.sector_info["country"],
+        area=area_def.sector_info["area"],
+        subarea=area_def.sector_info["subarea"],
+        state=area_def.sector_info["state"],
+        city=area_def.sector_info["city"],
+    )
     return web_fname
 
 
-def assemble_geoips_fname(basedir, product_name, source_name, platform_name, sector_name,
-                          coverage, resolution, product_datetime,
-                          output_type='png', data_provider=None, extra=None, product_dir=None, source_dir=None,
-                          continent=None, country=None, area=None, subarea=None, state=None, city=None):
-                            
-    ''' Produce full output product path from product / sensor specifications.
+def assemble_geoips_fname(
+    basedir,
+    product_name,
+    source_name,
+    platform_name,
+    sector_name,
+    coverage,
+    resolution,
+    product_datetime,
+    output_type="png",
+    data_provider=None,
+    extra=None,
+    product_dir=None,
+    source_dir=None,
+    continent=None,
+    country=None,
+    area=None,
+    subarea=None,
+    state=None,
+    city=None,
+):
+    """Produce full output product path from product / sensor specifications.
+
         standard web paths are of the format:
-       '<basedir>/<continent>-<country>-<area>/<subarea>-<state>-<city>/<productname>/<sensorname>
+        <basedir>/<continent>-<country>-<area>/<subarea>-<state>-<city>/<productname>/<sensorname>
         standard filenames are of the format:
         <date{%Y%m%d}>.<time{%H%M%S}>.<satname>.<sensorname>.<productname>.<sectorname>.<coverage>.<dataprovider>.<extra>
+
     +------------------+-----------+---------------------------------------------------+
     | Parameters:      | Type:     | Description:                                      |
     +==================+===========+===================================================+
@@ -106,8 +139,8 @@ def assemble_geoips_fname(basedir, product_name, source_name, platform_name, sec
     +------------------+-----------+---------------------------------------------------+
     | city:            | *str*     |                                                   |
     +------------------+-----------+---------------------------------------------------+
-    '''
-    fillval = 'x'
+    """
+    fillval = "x"
     if continent is None:
         continent = fillval
     if country is None:
@@ -129,28 +162,36 @@ def assemble_geoips_fname(basedir, product_name, source_name, platform_name, sec
     if source_dir is None:
         source_dir = source_name
     print(basedir)
-    path = pathjoin(basedir,
-                    '{0}-{1}-{2}'.format(continent, country, area),
-                    '{0}-{1}-{2}'.format(subarea, state, city),
-                    product_dir,
-                    source_dir)
-                    # source_dir,
-                    # '{0:0.1f}'.format(resolution).replace('.', 'p'))
-    # fname = '<date{%Y%m%d}>.<time{%H%M%S}>.<satname>.<sensorname>.<productname>.<sectorname>.
+    path = pathjoin(
+        basedir,
+        "{0}-{1}-{2}".format(continent, country, area),
+        "{0}-{1}-{2}".format(subarea, state, city),
+        product_dir,
+        source_dir,
+    )
+    # source_dir,
+    # '{0:0.1f}'.format(resolution).replace('.', 'p'))
+    # fname = '<date{%Y%m%d}>.<time{%H%M%S}>.<satname>.<sensorname>.
+    #          <productname>.<sectorname>.
     #          <coverage>.<dataprovider>.<extra>'
-    fname = '.'.join([product_datetime.strftime('%Y%m%d'),
-                      product_datetime.strftime('%H%M%S'),
-                      platform_name,
-                      source_name,
-                      product_name,
-                      sector_name,
-                      '{0:0.2f}'.format(coverage).replace('.', 'p'),
-                      data_provider,
-                      str(extra)])
-    fname = '{0}.{1}'.format(fname, output_type)
+    fname = ".".join(
+        [
+            product_datetime.strftime("%Y%m%d"),
+            product_datetime.strftime("%H%M%S"),
+            platform_name,
+            source_name,
+            product_name,
+            sector_name,
+            "{0:0.2f}".format(coverage).replace(".", "p"),
+            data_provider,
+            str(extra),
+        ]
+    )
+    fname = "{0}.{1}".format(fname, output_type)
     return pathjoin(path, fname)
 
 
 def geoips_fname_remove_duplicates(fname, mins_to_remove=10, remove_files=False):
-    LOG.info('MUST ADD LOGIC TO REMOVE STANDARD GEOIPS FILENAME DUPLICATES')
+    """Intended to remove duplicate filenames; currently no functionality."""
+    LOG.info("MUST ADD LOGIC TO REMOVE STANDARD GEOIPS FILENAME DUPLICATES")
     return [], []

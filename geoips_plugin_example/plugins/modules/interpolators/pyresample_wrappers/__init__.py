@@ -9,14 +9,4 @@
 # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
-"""Test algorithm for testing the plugin example."""
-from default_package import default_algorithm
-from default_package import constants
-
-
-def test_algorithm():
-    """Test algorithm for testing the plugin example."""
-    assert default_algorithm() == 1
-    assert default_algorithm() == default_algorithm(constants.test1)
-    assert default_algorithm(constants.test2) == default_algorithm(constants.test2)
-    assert default_algorithm(2) == 4
+"""Init file for geoips_plugin_example/interpolators/pyresample_wrappers."""
