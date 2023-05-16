@@ -14,14 +14,14 @@
 
 # This should contain test calls to cover ALL required functionality tests for the geoips_plugin_example repo.
 
-# The $GEOIPS tests modules sourced within this script handle:
+# The $GEOIPS_PACKAGES_DIR/geoips tests modules sourced within this script handle:
    # setting up the appropriate associative arrays for tracking the overall return value,
    # calling the test scripts appropriately, and 
    # setting the final return value.
 
 # Note you must use the variable "call" in the for the loop
 
-. $GEOIPS/tests/utils/test_all_pre.sh geoips_plugin_example
+. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh geoips_plugin_example
 
 echo ""
 # "call" used in test_all_run.sh
@@ -31,7 +31,7 @@ for call in \
             "pytest $GEOIPS_PACKAGES_DIR/geoips/tests/test_pytest" \
             "$GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/scripts/abi_aws.sh"
 do
-    . $GEOIPS/tests/utils/test_all_run.sh
+    . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
 done
 
-. $GEOIPS/tests/utils/test_all_post.sh
+. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_post.sh
