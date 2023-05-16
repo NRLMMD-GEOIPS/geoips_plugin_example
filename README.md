@@ -30,9 +30,9 @@ different plugin types.
 This package contains duplicated plugin examples of the following types:
 
 * algorithms
-* filename formats
-* output formats
-* interpolation routines
+* filename formatters
+* output formatters
+* interpolators
 * colormaps
 * product specification
 
@@ -50,11 +50,7 @@ System Requirements
 
 * geoips >= 1.10.0
 * numpy (to build dummy fortran)
-* Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass.
-  * Test data for this plugin is installed with the following script:
-```bash
-    $GEOIPS_PACKAGES_DIR/geoips/setup/check_system_requirements.sh aws_data abi_day_low_memory
-```
+* Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass (command below).
 
 IF REQUIRED: Install base geoips package
 ------------------------------------------------------------
@@ -67,14 +63,12 @@ within the geoips source repo documentation:
 Install geoips_plugin_example package
 ----------------------------------------
 NOTE: If you need to create a plugin with a compiled code extension, you will have to
-specify the Extension build information within a setup.py file, and install WITHOUT the "-e" option
-to pip install. Using both pyproject.toml and setup.py together does not allow for editable
-pip installs.  More information contained within pyproject.toml.
+specify the Extension build information within a setup.py file, and pip install WITHOUT
+the "-e" option to pip install. Using both pyproject.toml and setup.py together does
+not allow for editable pip installs.  More information contained within pyproject.toml.
 
 ```bash
-    # Assuming you followed the fully supported installation,
-    # using $GEOIPS_PACKAGES_DIR and $GEOIPS_CONFIG_FILE:
-    source $GEOIPS_CONFIG_FILE
+    # Ensure GeoIPS Python environment is enabled.
     git clone https://github.com/NRLMMD-GEOIPS/geoips_plugin_example.git $GEOIPS_PACKAGES_DIR/geoips_plugin_example
     pip install -e $GEOIPS_PACKAGES_DIR/geoips_plugin_example
 ```
