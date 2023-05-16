@@ -1,7 +1,11 @@
-# This is a template to use as a starting point for your pyproject.toml.
-# To get this working corectly, set `name` to the name of your packages,
-# add any installation requirements to the `install_requires` array, and
-# add any required `entry_points`.
+# pyproject.toml contains all build/install requirements
+# for use with pip or other compatible installation tools.
+
+# Please note the compiled fortran code is NOT included in
+# this pyproject.toml build - see instructions at the bottom
+# of this file for implementing compilable extensions
+# (note you will not be able to install in editable mode
+# when building/installing compilable extensions).
 
 [build-system]
 requires = ["setuptools>=61.2", "setuptools-scm", "numpy"]
@@ -75,16 +79,25 @@ interp_gauss_test = "geoips_plugin_example.plugins.modules.interpolators.pyresam
 [project.entry-points."geoips.colormaps"]
 Infrared_Test = "geoips_plugin_example.plugins.modules.colormaps.visir.Infrared_Test"
 
-# The following are the pieces of setup.py that were used to build compiled code. pip
-#   installing with a combination of pyproject.toml and setup.py does not work with
-#   the compiled extension, so setup.py would need to be constructed using this and the
-#   information above to create a plugin that uses compiled extensions.
-#from numpy.distutils.core import setup, Extension
+# Below are the contents of setup.py that are required to build and install code requiring
+# a compilable extension.
 
-# If you have no required compiled code, you can remove "ext1" from setup.py - only required for compileable source code
-#ext1 = Extension(name='geoips_plugin_example.lib.constants',
-#                 sources=['src/constants.f90'])
+# Note you MUST install WITHOUT the "-e" option to pip install when building/installing
+# using both setup.py and pyproject.toml together.  Installing in editable mode
+# with pyproject.toml and setup.py both specified is not supported by pip install.
 
-#setup(
-#      ext_modules=[ext1],  # If no required compiled code, remove "ext_modules" from setup
-#  )
+# If you require buiding/installing a package with a compilable extension, please
+# create a setup.py file with the below contents, then install the package with
+# pip install <package>  # no -e
+
+######## BEGIN setup.py CONTENTS ###########
+# from numpy.distutils.core import setup, Extension
+
+# Note numpy Extension capability only supported from setup.py, not pyproject.toml
+# ext1 = Extension(name='geoips_plugin_example.lib.constants',
+#                  sources=['src/constants.f90'])
+
+# setup(
+#       ext_modules=[ext1],  # Building compilable extensions only supported from setup.py
+#   )
+######## END setup.py CONTENTS ###########
