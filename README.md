@@ -50,7 +50,7 @@ System Requirements
 
 * geoips >= 1.10.0
 * numpy (to build dummy fortran)
-* Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass (command below).
+* Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass (command included below).
 
 IF REQUIRED: Install base geoips package
 ------------------------------------------------------------
