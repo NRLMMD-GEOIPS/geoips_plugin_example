@@ -1,0 +1,95 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.8.0 (2023-03-13)
+**************************
+
+Bug Fixes
+=========
+
+Update call signature for "standard" family filename formats.
+-------------------------------------------------------------
+
+*From issue GEOIPS#188: 2023-03-07, github.com merge, plugin interface updates*
+
+"coverage" must be a keyword argument for "standard" family filename formats, not
+a positional parameter.  Update accordingly.
+
+::
+
+    geoips_plugin_example/interface_modules/filename_formats/test_fname.py
+
+Code Formatting and Style Updates
+=================================
+
+Apply black defaults to Python files
+------------------------------------
+
+*From issue GEOIPS#126: 2023-03-07, apply black defaults*
+
+::
+
+    modified: geoips_plugin_example/default_algorithm.py
+    modified: geoips_plugin_example/interface_modules/algorithms/single_channel_test.py
+    modified: geoips_plugin_example/interface_modules/filename_formats/test_fname.py
+    modified: geoips_plugin_example/interface_modules/interpolation/pyresample_wrappers/interp_gauss_test.py
+    modified: geoips_plugin_example/interface_modules/output_formats/imagery_test.py
+    modified: geoips_plugin_example/interface_modules/user_colormaps/visir/Infrared_Test.py
+    modified: setup.py
+    modified: tests/test_algorithm.py
+
+Installation Updates
+====================
+
+Use setuptools_scm for versioning
+---------------------------------
+
+*From issue GEOIPS#192: 2023-03-07, Update version process*
+
+Replace VERSION file based versioning with setuptools_scm git tag based versioning.
+
+::
+
+    modified: setup.py
+    modified: geoips_plugin_example/__init__.py
+    removed: VERSION
+
+Documentation Updates
+=====================
+
+Replace CHANGELOG.md with rst
+-----------------------------
+
+*From issue GEOIPS#172: 2023-02-10, replace CHANGELOG.md with CHANGELOG.rst*
+
+* Created new CHANGELOG.rst that follows new formatting requirements.
+* Moved CHANGELOG.md to docs/source/releases for now - may rearrange into
+  separate release notes in the future if desired.
+
+::
+
+    new file: CHANGELOG.rst
+    renamed: CHANGELOG.md -> docs/source/releases/CHANGELOG.md
+
+Release Updates
+===============
+
+Add 1.8.0 release note
+----------------------
+
+*From issue GEOIPS#188: 2023-03-13, version update*
+
+::
+
+    modified: CHANGELOG.rst
+    new file: docs/source/releases/v1_8_0.rst
+    modified: docs/source/releases/index.rst

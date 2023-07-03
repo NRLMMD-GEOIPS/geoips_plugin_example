@@ -10,15 +10,13 @@
 # # # for more details. If you did not receive the license, for more information see:
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-'''Standard template module'''
+"""Standard template module."""
 
 from geoips_plugin_example.lib.constants import constants
 
 
 def geoips_plugin_example(value=None):
-    '''
-    This is a default algorithm for testing our CI/CD setup
-    '''
+    """Test the CI/CD setup using a default algorithm."""
     if value is None:
         value = constants.test1
     return value * value
