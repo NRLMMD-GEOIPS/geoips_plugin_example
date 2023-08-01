@@ -19,7 +19,7 @@ Breaking Changes
 Update interface naming and move to plugins directory
 -----------------------------------------------------
 
-*From issue GEOIPS/geoips#211: 2023-05-11*
+*From issue GEOIPS#211: 2023-05-11*
 
 * Moved interface_modules to plugins/modules
 
@@ -55,7 +55,7 @@ Bug Fixes
 Fix typo in git clone command in README
 ---------------------------------------
 
-*From GEOIPS/geoips_plugin_example#2: 2023-02-07*
+*From GEOIPS#2: 2023-02-07*
 
 Updated git clone command in README
 

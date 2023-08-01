@@ -10,8 +10,33 @@
  | # # # for more details. If you did not receive the license, for more information see:
  | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-Please see geoips/CHANGELOG_TEMPLATE.rst for instructions on updating
-CHANGELOG appropriately with each PR
+Version 1.10.2 (2023-06-16)
+***************************
 
-Release notes for previous/upcoming versions can be found in
-docs/source/releases, for reference.
+* colormap -> colormapper
+* Update to standard .gitignore
+
+*From issue GEOIPS#251: 2023-05-17, version update*
+
+Breaking Changes
+================
+
+Update colormap->colormapper in pyproject.toml
+----------------------------------------------
+
+::
+
+  pyproject.toml
+
+Refactoring Updates
+===================
+
+Update to standard .gitignore
+-----------------------------
+
+Include all the standard .gitignore information from
+the github template repo.
+
+::
+
+  modified: .gitignore

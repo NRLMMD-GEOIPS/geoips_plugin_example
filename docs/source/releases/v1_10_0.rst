@@ -1,0 +1,45 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.10.0 (2023-05-17)
+***************************
+
+* Update colormap->colormapper
+
+Breaking Changes
+================
+
+Update colormap->colormapper
+----------------------------
+
+::
+
+  modified: geoips_plugin_example/plugins/yaml/product_defaults/visir/Infrared-Test.yaml
+  renamed: colormaps/__init__.py -> colormappers/__init__.py
+  renamed: colormaps/visir/Infrared_Test.py -> colormappers/visir/Infrared_Test.py
+  renamed: colormaps/visir/__init__.py -> colormappers/visir/__init__.py
+  modified: plugins/modules/colormappers/visir/Infrared_Test.py
+
+Release Updates
+===============
+
+Add 1.10.0 release note
+-----------------------
+
+*From issue GEOIPS#251: 2023-05-17, version update*
+
+::
+
+    modified: CHANGELOG.rst
+    new file: docs/source/releases/v1_10_0.rst
+    modified: docs/source/releases/index.rst
+

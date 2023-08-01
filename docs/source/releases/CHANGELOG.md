@@ -112,7 +112,7 @@ modified:   README.md
     * Add --resampled_read to ABI single_source test script call
 
 
-# v1.3.0: 2021-11-25, remove "satops" from base\_paths
+# v1.3.0: 2021-11-25, remove "sat ops" from base\_paths
 
 ### Breaking Interface Changes
     * GEOIPSFINAL-\>ANNOTATED\_IMAGERY\_PATH
@@ -130,7 +130,7 @@ modified:   README.md
 
 ### Improvements
     * Replaced 89H template product with ABI Infrared test product
-        * Data available via NOAA AWS 
+        * Data available via NOAA AWS
         * Use static sector rather than TC to simplify output
     * Include template config_plugin for reference
     * Simplify README.md installation and testing steps
@@ -144,7 +144,7 @@ modified:   README.md
         * amsr2.sh
 
 
-# v1.2.2: 2021-10-25, README clarification, bug fixes in setup/test scripts 
+# v1.2.2: 2021-10-25, README clarification, bug fixes in setup/test scripts
 
 ### Improvements
     * Clarify README for using template_plugin to create new functionality
