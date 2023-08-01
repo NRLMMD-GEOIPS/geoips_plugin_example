@@ -1,0 +1,94 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.10.0a0 (2023-05-11)
+*****************************
+
+Breaking Changes
+================
+
+Update interface naming and move to plugins directory
+-----------------------------------------------------
+
+*From issue GEOIPS#211: 2023-05-11*
+
+* Moved interface_modules to plugins/modules
+
+  * Updated entry points
+  * Updated related imports
+* Renamed output_format to output_formatter
+* Renamed filename_format to filename_formatter
+* Renamed user_colormaps to colormaps
+* Renamed interpolation to interpolators
+* Copy existing YAML plugins to plugins/yaml
+* Updated Python plugins contain required attributes and have "call" as top-level
+  function name
+* Remove VERSION file
+* Update to use pyproject.toml
+* Switch to CHANGELOG.rst
+* Add standard tests to test_all.sh
+
+::
+
+  moved: geoips_plugin_example/interface_modules -> geoips_plugin_example/plugins/modules
+  copied: geoips_plugin_example/yaml_configs to geoips_plugin_example/plugins/yaml
+  modified: geoips_plugin_example/plugins/modules/algorithms/single_channel_test.py
+  modified: geoips_plugin_example/plugins/modules/filename_formatters/test_fname.py
+  modified: geoips_plugin_example/plugins/modules/interpolators/pyresample_wrappers/interp_gauss_test.py
+  modified: geoips_plugin_example/plugins/yaml/product_defaults/visir/Infrared-Test.yaml
+  modified: geoips_plugin_example/plugins/yaml/products/abi.yaml
+  modified: tests/scripts/abi_aws.sh
+  modified: tests/test_all.sh
+
+Bug Fixes
+=========
+
+Fix typo in git clone command in README
+---------------------------------------
+
+*From GEOIPS#2: 2023-02-07*
+
+Updated git clone command in README
+
+::
+
+  modified: README.md
+
+Code Formatting and Style Updates
+=================================
+
+Apply black defaults
+--------------------
+
+::
+
+  geoips_plugin_example/default_algorithm.py
+  geoips_plugin_example/plugins/modules/algorithms/single_channel_test.py
+  geoips_plugin_example/plugins/modules/filename_formatters/test_fname.py
+  geoips_plugin_example/plugins/modules/interpolators/pyresample_wrappers/interp_gauss_test.py
+
+Apply flake8 rst docstring formatting
+-------------------------------------
+
+* Module level docstrings
+
+::
+
+  geoips_plugin_example/__init__.py
+  geoips_plugin_example/plugins/modules/algorithms/__init__.py
+  geoips_plugin_example/plugins/modules/algorithms/single_channel_test.py
+  geoips_plugin_example/plugins/modules/filename_formatters/__init__.py
+  geoips_plugin_example/plugins/modules/filename_formatters/test_fname.py
+  geoips_plugin_example/plugins/modules/interpolators/pyresample_wrappers/interp_gauss_test.py
+  geoips_plugin_example/plugins/modules/output_formatters/__init__.py
+  src/__init__.py
+  tests/test_algorithm.py
