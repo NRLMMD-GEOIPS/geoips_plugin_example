@@ -10,6 +10,10 @@
  | # # # for more details. If you did not receive the license, for more information see:
  | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
+************************************
+Description of GeoIPS Plugin Example
+************************************
+
 GeoIPS Overview
 ===============
 
@@ -66,3 +70,4 @@ of the geoips plugin infrastructure can be implemented.  There are separate
 "template" plugin package repositories that can be used to actually
 create a new plugin package from scratch.  Please see GeoIPS documentation
 for additional information on plugin development and template repositories.
+

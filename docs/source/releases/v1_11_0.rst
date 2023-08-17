@@ -1,0 +1,80 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.11.0 (2023-08-04)
+***************************
+
+* Updates supporting geoips build_docs and ghpages deploy scripts
+* Removing non-functional fortran test code
+* Update test_all.sh call to set/use repopath and pkgname variables.
+
+Bug fixes
+=========
+
+Removing non-functional fortran test code
+-----------------------------------------
+
+Since the switch to pyproject.toml from setup.py, the fortran build has been
+non-functional.  Removing until we determine the optimal path forward for the
+fortran build process from pyproject.toml.
+
+::
+
+  deleted: geoips_plugin_example/plugins/modules/algorithms/default_algorithm.py
+  deleted: geoips_plugin_example/srclib/__init__.py
+  deleted: geoips_plugin_example/srclib/constants.py
+  deleted: src/__init__.py
+  deleted: src/constants.f90
+  deleted: tests/test_algorithm.py
+
+Testing Updates
+===============
+
+Update test_all.sh call to set/use repopath and pkgname variables.
+------------------------------------------------------------------
+
+By default now, set repopath and pkgname variables in test_all.sh, and use those
+when calling test_all_pre.sh, check_code.sh, and build_docs.sh.
+
+This is to support build_docs.sh requirement to pass BOTH repopath and pkgname
+(rather than implicitly determining pkgname from repopath).
+
+::
+
+  modified: tests/test_all.sh
+
+Documentation Updates
+=====================
+
+Updates supporting geoips build_docs and ghpages deploy scripts
+---------------------------------------------------------------
+
+* Add required RST files for building documentation from geoips build_docs script.
+* Correct RST formatting in docstrings to allow sphinx build
+* Support the geoips deploy_pages script to deploy the sphinx html docs to GitHub
+  pages for each plugin repository.
+* Update test_all.sh to include build_docs.sh call.
+
+::
+
+    modified: .gitignore
+    modified: tests/test_all.sh
+    deleted: docs/layout.html
+    deleted: docs/style.css
+    added: docs/source/geoips_plugin_example_api/index.rst
+    added: docs/source/introduction/index.rst
+    added: docs/source/userguide/index.rst
+    modified: geoips_plugin_example/default_algorithm.py
+    modified: geoips_plugin_example/plugins/yaml/products/abi.yaml
+    added: geoips_plugin_example/srclib/__init__.py
+    added: geoips_plugin_example/srclib/constants.py
+
