@@ -1,7 +1,7 @@
 # pyproject.toml contains all build/install requirements
 # for use with pip or other compatible installation tools.
 
-# Please note the compiled fortran code is NOT included in
+# Please note compiled fortran code is NOT included in
 # this pyproject.toml build - see instructions at the bottom
 # of this file for implementing compilable extensions
 # (note you will not be able to install in editable mode
@@ -78,6 +78,10 @@ interp_gauss_test = "geoips_plugin_example.plugins.modules.interpolators.pyresam
 
 [project.entry-points."geoips.colormappers"]
 Infrared_Test = "geoips_plugin_example.plugins.modules.colormappers.visir.Infrared_Test"
+
+# NOTE: Currently there is no compilable fortran example - when we determine the optimal 
+# way to build compilable fortran with pyproject.toml and setup.py, this example
+# will be reinstated.
 
 # Below are the contents of setup.py that are required to build and install code requiring
 # a compilable extension.

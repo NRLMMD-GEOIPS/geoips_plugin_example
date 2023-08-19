@@ -46,6 +46,25 @@ def call(
 
     resolution = max(area_def.pixel_size_x, area_def.pixel_size_y) / 1000.0
 
+    kwargs = {}
+    sector_info = (
+        area_def.sector_info
+        if "region" not in area_def.sector_info.keys()
+        else area_def.sector_info["region"]
+    )
+    if "continent" in sector_info:
+        kwargs["continent"] = sector_info["continent"]
+    if "country" in sector_info:
+        kwargs["country"] = sector_info["country"]
+    if "area" in sector_info:
+        kwargs["area"] = sector_info["area"]
+    if "subarea" in sector_info:
+        kwargs["subarea"] = sector_info["subarea"]
+    if "state" in sector_info:
+        kwargs["state"] = sector_info["state"]
+    if "city" in sector_info:
+        kwargs["city"] = sector_info["city"]
+
     extra = "{0:0.1f}".format(resolution).replace(".", "p")
     web_fname = assemble_geoips_fname(
         basedir=basedir,
@@ -61,12 +80,7 @@ def call(
         extra=extra,
         product_dir=product_dir,
         source_dir=source_dir,
-        continent=area_def.sector_info["continent"],
-        country=area_def.sector_info["country"],
-        area=area_def.sector_info["area"],
-        subarea=area_def.sector_info["subarea"],
-        state=area_def.sector_info["state"],
-        city=area_def.sector_info["city"],
+        **kwargs,
     )
     return web_fname
 

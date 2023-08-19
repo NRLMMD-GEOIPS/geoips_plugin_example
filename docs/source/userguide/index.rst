@@ -10,9 +10,9 @@
  | # # # for more details. If you did not receive the license, for more information see:
  | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-Please see geoips/CHANGELOG_TEMPLATE.rst for instructions on updating
-CHANGELOG appropriately with each PR
+**********
+User Guide
+**********
 
-Release notes for previous/upcoming versions can be found in
-docs/source/releases, for reference.
-
+.. toctree::
+   :maxdepth: 2

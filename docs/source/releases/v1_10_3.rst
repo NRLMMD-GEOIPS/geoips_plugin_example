@@ -10,9 +10,19 @@
  | # # # for more details. If you did not receive the license, for more information see:
  | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-Please see geoips/CHANGELOG_TEMPLATE.rst for instructions on updating
-CHANGELOG appropriately with each PR
+Version 1.10.3 (2023-08-04)
+***************************
 
-Release notes for previous/upcoming versions can be found in
-docs/source/releases, for reference.
+* Breaking change: Update source_name to source_names in product YAMLs
 
+Breaking Changes
+================
+
+Update source_name to source_names in product YAMLs
+---------------------------------------------------
+
+*From issue GEOIPS#267: 2023-07-05, replace source_name with source_names*
+
+::
+
+        modified:   geoips_plugin_example/plugins/yaml/products/abi.yaml

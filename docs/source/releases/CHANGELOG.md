@@ -10,7 +10,6 @@
     # # # for more details. If you did not receive the license, for more information see:
     # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-
 # v1.6.0: 2022-11-28, open source release
 ## GEOIPS#119: 2022-11-18, simplify README
 ### Documentation

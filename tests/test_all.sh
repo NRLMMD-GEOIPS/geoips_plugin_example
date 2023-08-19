@@ -1,4 +1,5 @@
 #!/bin/bash
+
 # # # Distribution Statement A. Approved for public release. Distribution unlimited.
 # # #
 # # # Author:
@@ -12,7 +13,7 @@
 # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
 # This should contain test calls to cover ALL required functionality tests for
-# the geoips_plugin_example repo.
+# this repo.
 
 # The $GEOIPS_PACKAGES_DIR/geoips tests modules sourced within this script handle:
    # setting up the appropriate associative arrays for tracking the overall return
@@ -30,16 +31,19 @@ if [[ ! -d $GEOIPS_PACKAGES_DIR/geoips ]]; then
     exit 1
 fi
 
-. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh geoips_plugin_example
+repopath=`dirname $0`/../
+pkgname=geoips_plugin_example
+. $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_pre.sh $pkgname
 
 echo ""
 # Note you must use the variable "call" in the for the loop
 # "call" used in test_all_run.sh
 for call in \
-            "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all `dirname $0`/../" \
-            "$GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/scripts/abi_aws.sh"
+  "$GEOIPS_PACKAGES_DIR/geoips/tests/utils/check_code.sh all $repopath no_flake8" \
+  "$GEOIPS_PACKAGES_DIR/geoips/docs/build_docs.sh $repopath $pkgname html_only" \
+  "$GEOIPS_PACKAGES_DIR/geoips_plugin_example/tests/scripts/abi_aws.sh"
 do
-    . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
+  . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_run.sh
 done
 
 . $GEOIPS_PACKAGES_DIR/geoips/tests/utils/test_all_post.sh
