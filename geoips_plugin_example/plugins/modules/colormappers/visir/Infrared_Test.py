@@ -25,15 +25,15 @@ def call(data_range=[-90, 30]):
 
     Parameters
     ----------
-        data_range (list[float]): Min and max value for colormap.
-                                  Ensure the data range matches the range of the
-                                  algorithm specified for use with this colormap
-                                  The Infrared colormap MUST include -90 and 30
+    data_range (list[float]): Min and max value for colormap.
+                              Ensure the data range matches the range of the
+                              algorithm specified for use with this colormap
+                              The Infrared colormap MUST include -90 and 30
 
     Returns
     -------
-        dictionary : Dictionary of matplotlib plotting parameters, to ensure
-                     consistent image output
+    dictionary : Dictionary of matplotlib plotting parameters, to ensure
+                 consistent image output
     """
     min_tb = int(data_range[0])
     max_tb = int(data_range[1])

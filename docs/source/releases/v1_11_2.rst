@@ -1,0 +1,48 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.11.2 (2023-09-15)
+***************************
+
+* resolve PDF build error
+* Add release note note to CHANGELOG.rst
+
+Bug Fixes
+=========
+
+resolve PDF build error
+-----------------------
+
+Build success with pdf build automatically completing and produces a PDF.
+Resolved so PDF and html builds BOTH return zero, which equates to
+error free.
+
+::
+
+  modified: geoips_plugin_example/plugins/modules/algorithms/single_channel_test.py
+  modified: geoips_plugin_example/plugins/modules/colormappers/visir/Infared_Test.py
+
+Documentation Updates
+=====================
+
+Add release note note to CHANGELOG.rst
+--------------------------------------
+
+*From GEOIPS#345: 2023-09-15, add update_this_release_note file*
+
+Note in CHANGELOG.rst that you can either modify CHANGELOG.rst,
+or update the release note found in geoips/update_this_release_note
+directly.
+
+::
+
+  CHANGELOG.rst
