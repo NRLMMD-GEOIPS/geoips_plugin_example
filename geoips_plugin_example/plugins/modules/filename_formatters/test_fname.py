@@ -61,12 +61,12 @@ def call(
         extra=extra,
         product_dir=product_dir,
         source_dir=source_dir,
-        continent=area_def.sector_info["continent"],
-        country=area_def.sector_info["country"],
-        area=area_def.sector_info["area"],
-        subarea=area_def.sector_info["subarea"],
-        state=area_def.sector_info["state"],
-        city=area_def.sector_info["city"],
+        continent=area_def.sector_info["region"]["continent"],
+        country=area_def.sector_info["region"]["country"],
+        area=area_def.sector_info["region"]["area"],
+        subarea=area_def.sector_info["region"]["subarea"],
+        state=area_def.sector_info["region"]["state"],
+        city=area_def.sector_info["region"]["city"],
     )
     return web_fname
 
