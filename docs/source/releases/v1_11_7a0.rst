@@ -1,0 +1,33 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.11.7a0 (2023-10-06)
+***************************
+
+* Adjust code for newly named Geostationary sectors
+
+Refactoring Updates
+===================
+
+Adjust code for newly named Geostationary sectors
+-------------------------------------------------
+
+*From issue GEOIPS#304: 2023-08-27, Rename Geostationary Sectors*
+
+GeoIPS has a branch which renamed geostationary sectors. To adhere to these newly named
+sectors, we need to update scripts in this package, and well as the outputs, to use
+these newly named sectors.
+
+::
+
+    modified: tests/scripts/abi_aws.sh
+    modified: tests/outputs/abi_aws/Infrared-Test_image/20200918.195020.goes-16.abi.Infrared-Test.goes16.45p56.noaa.10p0.png
