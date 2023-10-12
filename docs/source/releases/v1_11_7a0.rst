@@ -11,7 +11,7 @@
  | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
 Version 1.11.7a0 (2023-10-06)
-***************************
+*****************************
 
 * Adjust code for newly named Geostationary sectors
 
