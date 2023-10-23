@@ -10,39 +10,24 @@
  | # # # for more details. If you did not receive the license, for more information see:
  | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
 
-.. _release_notes:
+Version 1.11.7a0 (2023-10-06)
+*****************************
 
-*************
-Release Notes
-*************
+* Adjust code for newly named Geostationary sectors
 
-Version 1.11
-------------
+Refactoring Updates
+===================
 
-.. toctree::
-   :maxdepth: 1
+Adjust code for newly named Geostationary sectors
+-------------------------------------------------
 
-   v1_11_7a0
-   v1_11_3
-   v1_11_2
-   v1_11_1
-   v1_11_0
+*From issue GEOIPS#304: 2023-08-27, Rename Geostationary Sectors*
 
-Version 1.10
-------------
+GeoIPS has a branch which renamed geostationary sectors. To adhere to these newly named
+sectors, we need to update scripts in this package, and well as the outputs, to use
+these newly named sectors.
 
-.. toctree::
-   :maxdepth: 1
+::
 
-   v1_10_3
-   v1_10_2
-   v1_10_0a0
-   v1_10_0
-
-Version 1.8
------------
-
-.. toctree::
-   :maxdepth: 1
-
-   v1_8_0
+    modified: tests/scripts/abi_aws.sh
+    modified: tests/outputs/abi_aws/Infrared-Test_image/20200918.195020.goes-16.abi.Infrared-Test.goes16.45p56.noaa.10p0.png
