@@ -1,0 +1,56 @@
+ | # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+ | # # #
+ | # # # Author:
+ | # # # Naval Research Laboratory, Marine Meteorology Division
+ | # # #
+ | # # # This program is free software: you can redistribute it and/or modify it under
+ | # # # the terms of the NRLMMD License included with this program. This program is
+ | # # # distributed WITHOUT ANY WARRANTY; without even the implied warranty of
+ | # # # MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the included license
+ | # # # for more details. If you did not receive the license, for more information see:
+ | # # # https://github.com/U-S-NRL-Marine-Meteorology-Division/
+
+Version 1.11.7 (2023-11-09)
+***************************
+
+* Add registered_plugins.json to .gitignore
+* Remove no_flake8 from check_code call in test_all.sh
+* Add 1.11.7 release note
+
+Bug Fixes
+=========
+
+Add registered_plugins.json to .gitignore
+-----------------------------------------
+
+*From GEOIPS#393: 2023-11-17, bug fixes*
+
+::
+
+  .gitignore
+
+Testing Updates
+===============
+
+Remove no_flake8 from check_code call in test_all.sh
+----------------------------------------------------
+
+*From GEOIPS#393: 2023-11-17, bug fixes*
+
+::
+
+  tests/test_all.sh
+
+Release Updates
+===============
+
+Add 1.11.7 release note
+-----------------------
+
+*From GEOIPS#393: 2023-11-09, version update*
+
+::
+
+    modified: CHANGELOG.rst
+    new file: docs/source/releases/v1_11_7.rst
+    modified: docs/source/releases/index.rst
