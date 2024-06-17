@@ -1,107 +1,48 @@
-# pyproject.toml contains all build/install requirements
-# for use with pip or other compatible installation tools.
-
-# Please note compiled fortran code is NOT included in
-# this pyproject.toml build - see instructions at the bottom
-# of this file for implementing compilable extensions
-# (note you will not be able to install in editable mode
-# when building/installing compilable extensions).
-
-[build-system]
-requires = ["setuptools>=61.2", "setuptools-scm", "numpy"]
-build-backend = "setuptools.build_meta"
-
-[tool.setuptools.packages]
-find = {namespaces = false}
-
-[tool.setuptools.package-dir]
-"" = "."
-
-[tool.setuptools.package-data]
-"*" = [
-    "plugins/*.txt",
-    "plugins/*/*.txt",
-    "plugins/*/*/*.txt",
-    "plugins/*/*/*/*.txt",
-    "plugins/*/*/*/*/*.txt",
-    "plugins/*.yaml",
-    "plugins/*/*.yaml",
-    "plugins/*/*/*.yaml",
-    "plugins/*/*/*/*.yaml",
-    "plugins/*/*/*/*/*.yaml",
-    "schema/*.yaml",
-    "schema/*/*.yaml",
-    "schema/*/*/*.yaml",
-    "schema/*/*/*/*.yaml",
-    "schema/*/*/*/*/*.yaml",
-    "image_utils/ascii_palettes/*",
-]
-
-[tool.setuptools.dynamic]
-entry-points = {file = ["entry-points.ini"]}
-
-[tool.setuptools_scm]
-"version_scheme" = "post-release"  # Use current version .postN vs incrementing
-"local_scheme" = "no-local-version"  # Don't include hash, or date, just postN
-"write_to" = "geoips_plugin_example/_version.py"  # Write an actual file
-
-[project]
-name = "geoips_plugin_example"
-authors = []
+[tool.poetry]
+name = "geoips_plugin_example"  # package available at the root of the project
+version = "0.0.0"
 description = "GeoIPS Plugin Example Package"
+authors = []
 readme = "README.md"
-requires-python = ">=3.9"
 keywords = []
-license = {file = "LICENSE"}
-classifiers = [
+license = "LICENSE"   # required
+classifiers = [ # // list of PyPI trove classifiers to describe the project
     "Programming Language :: Python :: 3",
 ]
-dynamic = ["version"]
-dependencies = [
-    "numpy",
-]
+repository = "https://github.com/NRLMMD-GEOIPS/geoips_plugin_example"
+#documentation = "set the url"
+include = ["**/*.txt", "**/*.py", "**/*.yaml"]
 
-[project.entry-points."geoips.plugin_packages"]
+# uses current version .postN and not incrementing
+[tool.poetry-dynamic-versioning]
+enable = true
+vcs = "git"
+metadata = false # don't include local-version hash; date doesn't appear by deafult
+style = "pep440" # pep440 is default; can rmeove later on; used for : keeping 0.0.8 as the default install until 0.0.9 is out
+#style = "semver"
+#tag-branch = "feature-poetry"
+strict = false
+pattern = "(?x)^((?P<epoch>\\d+)!)?(?P<base>\\d+(\\.\\d+)*)([-._]?((?P<stage>[a-zA-Z]+)[-._]?(?P<revision>\\d+)?))?(\\+(?P<tagged_metadata>.+))?$"
+
+[tool.poetry-dynamic-versioning.substitution]
+files = ["*/_version.py"]
+
+# This is where you would specify a pre-build script from pyproject.toml/poetry.
+# [tool.poetry.build]
+# generate-setup-file = false  # I have no idea what this does
+# script = "build.py"  # This gets called as a python script prior to running build
+
+[build-system]
+requires = ["poetry-core>=1.0.0", "poetry-dynamic-versioning>=1.0.0,<2.0.0"]
+build-backend = "poetry_dynamic_versioning.backend"                          # object used to perform the build process
+
+python = ">=3.10"       # mandatory to declare the required python version
+
+[tool.poetry.dependencies] # Include any python dependencies here
+"numpy" = "*"
+
+# All plugins within the "geoips_plugin_example" package are automatically discovered
+# during the plugin registry process.
+
+[tool.poetry.plugins."geoips.plugin_packages"]
 "geoips_plugin_example" = "geoips_plugin_example"
-
-[project.entry-points."geoips.filename_formatters"]
-test_fname = "geoips_plugin_example.plugins.modules.filename_formatters.test_fname"
-
-[project.entry-points."geoips.output_formatters"]
-imagery_test = "geoips_plugin_example.plugins.modules.output_formatters.imagery_test"
-
-[project.entry-points."geoips.algorithms"]
-single_channel_test = "geoips_plugin_example.plugins.modules.algorithms.single_channel_test"
-
-[project.entry-points."geoips.interpolators"]
-interp_gauss_test = "geoips_plugin_example.plugins.modules.interpolators.pyresample_wrappers.interp_gauss_test"
-
-[project.entry-points."geoips.colormappers"]
-Infrared_Test = "geoips_plugin_example.plugins.modules.colormappers.visir.Infrared_Test"
-
-# NOTE: Currently there is no compilable fortran example - when we determine the optimal 
-# way to build compilable fortran with pyproject.toml and setup.py, this example
-# will be reinstated.
-
-# Below are the contents of setup.py that are required to build and install code requiring
-# a compilable extension.
-
-# Note you MUST install WITHOUT the "-e" option to pip install when building/installing
-# using both setup.py and pyproject.toml together.  Installing in editable mode
-# with pyproject.toml and setup.py both specified is not supported by pip install.
-
-# If you require buiding/installing a package with a compilable extension, please
-# create a setup.py file with the below contents, then install the package with
-# pip install <package>  # no -e
-
-######## BEGIN setup.py CONTENTS ###########
-# from numpy.distutils.core import setup, Extension
-
-# Note numpy Extension capability only supported from setup.py, not pyproject.toml
-# ext1 = Extension(name='geoips_plugin_example.lib.constants',
-#                  sources=['src/constants.f90'])
-
-# setup(
-#       ext_modules=[ext1],  # Building compilable extensions only supported from setup.py
-#   )
-######## END setup.py CONTENTS ###########
