@@ -1,4 +1,4 @@
-    # # # Distribution Statement A. Approved for public release. Distribution unlimited.
+    # # # Distribution Statement A. Approved for public release. Distribution is unlimited.
     # # #
     # # # Author:
     # # # Naval Research Laboratory, Marine Meteorology Division
@@ -48,8 +48,8 @@ implementing which could benefit from a template repo.
 System Requirements
 ---------------------
 
-* geoips >= 1.10.2
-* numpy (to build dummy fortran)
+* geoips >= 1.13.0
+* numpy (to build dummy fortran, not currently implemented)
 * Test data repos contained in $GEOIPS_TESTDATA_DIR for tests to pass
   (command included below).
 
@@ -63,10 +63,6 @@ within the geoips source repo documentation:
 
 Install geoips_plugin_example package
 ----------------------------------------
-NOTE: If you need to create a plugin with a compiled code extension, you will have to
-specify the Extension build information within a setup.py file, and pip install WITHOUT
-the "-e" option to pip install. Using both pyproject.toml and setup.py together does
-not allow for editable pip installs.  More information contained within pyproject.toml.
 
 ```bash
     # Ensure GeoIPS Python environment is enabled.
