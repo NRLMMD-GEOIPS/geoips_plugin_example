@@ -1,4 +1,4 @@
-    # # # This source code is protected under the license referenced at
+    # # # This source code is subject to the license referenced at
     # # # https://github.com/NRLMMD-GEOIPS.
 
 # v1.6.0: 2022-11-28, open source release
