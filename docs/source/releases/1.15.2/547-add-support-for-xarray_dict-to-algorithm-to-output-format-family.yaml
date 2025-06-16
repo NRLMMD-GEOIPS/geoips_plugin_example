@@ -1,0 +1,35 @@
+testing:
+- title: 'Add example unsectored_xarray_dict_to_algorithm_to_output_format product'
+  description: |
+    Add test script, algorithm, output formatter, and product YAML as an example
+    product passing unsectored output from the reader to an algorithm, then
+    passing the dictionary of xarray return from the algorithm directly to the
+    output formatter.
+  files:
+    deleted:
+    - ''
+    moved:
+    - ''
+    added:
+    - 'new file: geoips_plugin_example/plugins/modules/algorithms/example_xarray_dict_to_xarray_dict_algorithm.py'
+    - 'new file: geoips_plugin_example/plugins/modules/output_formatters/example_xrdict_to_outlist_output_formatter.py'
+    - 'new file: geoips_plugin_example/plugins/yaml/products/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product.yaml'
+    - 'new file: tests/scripts/Example-Unsectored-Sarray-Dict-to-Algorithm-to-Output-Format-Product.sh'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_0'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_1'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_2'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_3'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_4'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_5'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_6'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_7'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_8'
+    - 'new file: tests/outputs/Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product/line_9'
+    modified:
+    - ''
+  related-issue:
+    number: 547
+    repo_url: "GEOIPS/geoips"
+  date:
+    start: 2025-05-06
+    finish: 2025-05-06
