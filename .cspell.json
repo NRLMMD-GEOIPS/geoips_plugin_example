@@ -502,6 +502,7 @@
         "webhooks",
         "xml",
         "xobj",
+	"xrdict",
         "xpadding",
         "yaml",
         "yml",
