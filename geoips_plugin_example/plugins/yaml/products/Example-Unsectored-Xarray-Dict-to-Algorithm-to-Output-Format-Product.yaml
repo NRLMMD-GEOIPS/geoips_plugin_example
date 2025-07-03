@@ -1,0 +1,27 @@
+interface: products
+family: list
+name: example_families
+docstring: |
+  An example product list to demonstrate a variety of combinations of product,
+  algorithm, and output formatter families.
+spec:
+  products:
+    - name: Example-Unsectored-Xarray-Dict-to-Algorithm-to-Output-Format-Product
+      source_names: [sar-spd]
+      docstring: |
+        An example product to demonstrate passing unsectored xarrays directly from the
+        reader to an algorithm plugin, then passing a dictionary of xarrays returned
+        from an algorithm plugin directly to an output formatter.
+      family: unsectored_xarray_dict_to_algorithm_to_output_format
+      spec:
+        variables: ["WINDSPEED:wind_speed_kts"]
+        algorithm:
+          plugin:
+            name: example_xarray_dict_to_xarray_dict_algorithm
+            arguments:
+              input_variable_name: "WINDSPEED:wind_speed_kts"
+              output_variable_name: "WINDSPEED:double_wind_speed"
+              extra: "Reader to algorithm to output formatter product"
+            docstring: |
+              An example algorithm to demonstrate receiving a dictionary of xarray
+              datasets as an argument, and returning a dictionary of xarray datasets.
