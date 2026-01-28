@@ -2,13 +2,13 @@ continuous integration:
 - title: 'Update code base for Black 2026 style - see Black 26.1.0 release notes for details.'
   description: 'Please make sure you update your local Black install as old versions will produce different results.'
   files:
-    added:
+    added: []
     modified:
     - 'geoips_plugin_example/plugins/modules/colormappers/visir/Infrared_Test.py'
     - 'geoips_plugin_example/plugins/modules/interpolators/pyresample_wrappers/interp_gauss_test.py'
     - 'geoips_plugin_example/plugins/modules/output_formatters/imagery_test.py'
-    deleted:
-    moved:
+    deleted: []
+    moved: []
   related-issue:
     number: null
     repo_url: ''
