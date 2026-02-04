@@ -1,0 +1,36 @@
+testing:
+  - title: Update to geoips run single_source or config_based, and GEOIPS_TESTDATA_DIR
+    description: |
+      Update to geoips CLI command to run procflow.
+    files:
+      modified:
+        - tests/scripts/abi_aws.sh
+    date:
+      start: 2025-07-10
+      finish: 2025-07-10
+    related-issue:
+      internal: GEOIPS#861 - 1.16.2 internal bug fixes
+  - title: Standard sync updates
+    description: |
+      Update from geoips_ci sync directory
+    files:
+      modified:
+        - all
+    date:
+      start: 2025-07-10
+      finish: 2025-07-10
+    related-issue:
+      internal: GEOIPS#861 - 1.16.2 internal bug fixes
+  - title: Remove all instances of test_data_noaa_aws.
+    description: |
+      No longer use test datasets from the test_data_noaa_aws repository, ensure all
+      required test datasets are moved to either test_data_abi, test_data_ahi, or
+      test_data_ami.
+    files:
+      modified:
+        - tests/scripts/abi_aws.sh
+    date:
+      start: 2025-07-10
+      finish: 2025-07-10
+    related-issue:
+      internal: GEOIPS#861 - 1.16.2 internal bug fixes
