@@ -2,6 +2,7 @@
 # # # https://github.com/NRLMMD-GEOIPS.
 
 """Test image output procedure."""
+
 import logging
 
 LOG = logging.getLogger(__name__)

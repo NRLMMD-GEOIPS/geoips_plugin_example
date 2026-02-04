@@ -2,6 +2,7 @@
 # # # https://github.com/NRLMMD-GEOIPS.
 
 """Module containing Infrared algorithm colormapper."""
+
 import logging
 
 LOG = logging.getLogger(__name__)
