@@ -1,0 +1,17 @@
+bug fixes:
+- title: Standard sync updates.
+  description: |
+    * Integration test script formatting
+    * add tests/conftest.py
+    * Other standard sync file updates
+    * black updates
+  files:
+    added:
+    - tests/conftest.py
+    modified:
+    - tests/integration_tests/test_package.py
+  related-issue:
+    internal: geoips#1029 - 1.18.0 updates
+  date:
+    start: 2026-03-10
+    finish: 2026-03-10

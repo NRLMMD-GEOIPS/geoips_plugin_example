@@ -1,0 +1,15 @@
+bug fixes:
+- title: Black updates
+  description: |
+    Updates due to new version of black.
+  files:
+    modified:
+    - geoips_plugin_example/plugins/modules/colormappers/visir/Infrared_Test.py
+    - geoips_plugin_example/plugins/modules/interpolators/pyresample_wrappers/interp_gauss_test.py
+    - geoips_plugin_example/plugins/modules/output_formatters/imagery_test.py
+  related-issue:
+    internal: geoips#1029 - 1.18.0 updates
+  date:
+    start: 2026-03-09
+    finish: 2026-03-09
+
