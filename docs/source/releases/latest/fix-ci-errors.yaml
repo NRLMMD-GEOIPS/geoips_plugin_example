@@ -1,0 +1,34 @@
+bug fix:
+- title: 'Put xarray_obj first in the imagery_test output formatter'
+  description: |
+    GeoIPS now validates ``image`` family output formatters with the data
+    argument (``xarray_obj``) first, then ``area_def``. ``imagery_test`` had
+    ``area_def`` first, so loading it failed with "MISSING expected arg
+    'xarray_obj' in 'imagery_test'" and ``tests/scripts/abi_aws.sh`` failed.
+  files:
+    modified:
+    - 'geoips_plugin_example/plugins/modules/output_formatters/imagery_test.py'
+    added:
+    - 'docs/source/releases/latest/fix-ci-errors.yaml'
+  related-issue:
+    number: null
+    repo_url: ''
+  date:
+    start: 2026-10-19
+    finish: 2026-10-19
+documentation:
+- title: 'Move the introduction docs to getting-started'
+  description: |
+    GeoIPS no longer adds the legacy ``introduction`` section to the docs index,
+    so ``build_docs.sh`` failed with "introduction/index.rst: document isn't
+    included in any toctree". The pages are now in ``getting-started``.
+  files:
+    moved:
+    - 'docs/source/introduction/index.rst -> docs/source/getting-started/index.rst'
+    - 'docs/source/introduction/description_geoips_plugin_example.rst -> docs/source/getting-started/description_geoips_plugin_example.rst'
+  related-issue:
+    number: null
+    repo_url: ''
+  date:
+    start: 2026-10-19
+    finish: 2026-10-19

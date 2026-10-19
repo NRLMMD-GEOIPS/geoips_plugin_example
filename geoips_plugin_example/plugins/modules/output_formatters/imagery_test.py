@@ -13,8 +13,8 @@ name = "imagery_test"
 
 
 def call(
-    area_def,
     xarray_obj,
+    area_def,
     product_name,
     output_fnames,
     product_name_title=None,
