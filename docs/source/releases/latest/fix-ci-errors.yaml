@@ -16,6 +16,21 @@ bug fix:
   date:
     start: 2026-10-19
     finish: 2026-10-19
+- title: 'Import interp_pyresample from geoips.plugins.classes'
+  description: |
+    GeoIPS moved its interpolator utilities from ``geoips.plugins.modules`` to
+    ``geoips.plugins.classes``, so ``interp_gauss_test`` failed with "No module
+    named 'geoips.plugins.modules.interpolators.utils.interp_pyresample'" and
+    ``tests/scripts/abi_aws.sh`` failed.
+  files:
+    modified:
+    - 'geoips_plugin_example/plugins/modules/interpolators/pyresample_wrappers/interp_gauss_test.py'
+  related-issue:
+    number: null
+    repo_url: ''
+  date:
+    start: 2026-10-20
+    finish: 2026-10-20
 documentation:
 - title: 'Move the introduction docs to getting-started'
   description: |
