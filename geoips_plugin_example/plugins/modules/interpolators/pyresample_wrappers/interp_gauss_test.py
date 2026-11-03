@@ -37,7 +37,7 @@ def call(area_def, input_xarray, output_xarray, varlist, array_num=None, sigmava
             vars_to_interp += [input_xarray[varname].to_masked_array()]
 
     # Use standard scifile / pyresample registration
-    from geoips.plugins.modules.interpolators.utils.interp_pyresample import (
+    from geoips.plugins.classes.interpolators.utils.interp_pyresample import (
         interp_kd_tree,
         get_data_box_definition,
     )
